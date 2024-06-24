@@ -1,0 +1,19 @@
+spring:
+    # データベースの接続設定
+    datasource:
+      driverClassName: org.h2.Driver
+      url: jdbc:h2:mem:test;MODE=PostgreSQL
+      username: sa
+      password:
+      # コネクションプールの設定
+      hikari:
+        connection-timeout: 60000
+        validationTimeout: 30000
+        maximum-pool-size: 2
+        autoCommit: false
+    transaction:
+        rollback-on-commit-failure: true
+    sql:
+        init:
+            mode: always
+            schema-locations: classpath:schema.sql
